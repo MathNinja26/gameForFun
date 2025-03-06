@@ -305,12 +305,18 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+sprites.onCreated(SpriteKind.Player, function (sprite) {
+    statusbar.attachToSprite(mySprite)
+    controller.moveSprite(mySprite)
+    scene.cameraFollowSprite(mySprite)
+})
 let y = 0
 let x = 0
 let mySprite: Sprite = null
+let statusbar: StatusBarSprite = null
 scene.setBackgroundColor(7)
 tiles.setCurrentTilemap(tilemap`level2`)
-let statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+statusbar = statusbars.create(20, 4, StatusBarKind.Health)
 mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -329,6 +335,3 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-statusbar.attachToSprite(mySprite)
-controller.moveSprite(mySprite)
-scene.cameraFollowSprite(mySprite)
