@@ -1,3 +1,4 @@
+scene.setBackgroundColor(7)
 tiles.setCurrentTilemap(tilemap`level2`)
 let statusbar = statusbars.create(20, 4, StatusBarKind.Health)
 let mySprite = sprites.create(img`
@@ -19,3 +20,5 @@ let mySprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 statusbar.attachToSprite(mySprite)
+controller.moveSprite(mySprite)
+scene.cameraFollowSprite(mySprite)
