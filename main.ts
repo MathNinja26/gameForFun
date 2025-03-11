@@ -432,13 +432,18 @@ function prolouge () {
         `, SpriteKind.Enemy)
     game.showLongText("The duck went crazy and chased all the other ducks away.", DialogLayout.Bottom)
     duck.setVelocity(-50, 0)
+    duck4.follow(duck)
     pause(500)
     duck1.setVelocity(0, -50)
+    duck1.follow(duck3)
     pause(500)
     duck2.setVelocity(-92, 0)
+    duck4.follow(duck2)
     pause(500)
     duck3.setVelocity(0, 100)
+    duck4.follow(duck3)
     pause(2000)
+    sprites.destroy(duck4)
 }
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
