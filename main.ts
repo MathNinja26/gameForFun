@@ -444,6 +444,7 @@ function prolouge () {
     duck4.follow(duck3)
     pause(2000)
     sprites.destroy(duck4)
+    game.showLongText("Your job is to collect the three items for the cure in each level and once you have all three you need to cure the infected ducks.", DialogLayout.Full)
 }
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
