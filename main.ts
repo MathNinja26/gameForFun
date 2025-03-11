@@ -409,8 +409,9 @@ function prolouge () {
     duck2.setPosition(14, 97)
     duck3.setPosition(138, 98)
     duck4.setPosition(78, 64)
-    game.showLongText("In the anual meeting of Ducks United, the main representatives from all faive major biomes. ", DialogLayout.Bottom)
+    game.showLongText("In the anual meeting of Ducks United, the main representatives from all five major biomes were there. ", DialogLayout.Bottom)
     game.showLongText("All of a sudden the duck from the desert biome got a mouthful of water and turned a different collor", DialogLayout.Bottom)
+    sprites.destroy(duck4)
     duck4 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . 8 7 b . . . 
@@ -429,6 +430,15 @@ function prolouge () {
         . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
         . . . c c c c c c c c 8 8 . . . 
         `, SpriteKind.Enemy)
+    game.showLongText("The duck went crazy and chased all the other ducks away.", DialogLayout.Bottom)
+    duck.setVelocity(-50, 0)
+    pause(500)
+    duck1.setVelocity(0, -50)
+    pause(500)
+    duck2.setVelocity(-92, 0)
+    pause(500)
+    duck3.setVelocity(0, 100)
+    pause(2000)
 }
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
