@@ -445,6 +445,25 @@ function prolouge () {
 }
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
+    duck4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 8 7 b . . . 
+        . . . . . . . . . 8 7 8 . . . . 
+        . . . . . . 8 8 8 8 8 8 . . . . 
+        . . . . . 8 8 7 7 7 7 7 8 . . . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+        . . . c c c c c c c c 8 8 . . . 
+        `, SpriteKind.Enemy)
+    fight = true
     sprites.destroy(mySprite)
     mySprite = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -465,25 +484,7 @@ function Level_1 () {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
-    duck4 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . 8 7 b . . . 
-        . . . . . . . . . 8 7 8 . . . . 
-        . . . . . . 8 8 8 8 8 8 . . . . 
-        . . . . . 8 8 7 7 7 7 7 8 . . . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
-        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
-        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
-        . . . c c c c c c c c 8 8 . . . 
-        `, SpriteKind.Enemy)
-    tiles.placeOnTile(duck4, tiles.getTileLocation(10, 10))
+    tiles.placeOnTile(duck4, tiles.getTileLocation(5, 5))
     Cure1 = false
     cure2 = false
     Cure3 = false
@@ -649,15 +650,23 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
     statusbar.attachToSprite(sprite)
     scene.cameraFollowSprite(sprite)
+    if (fight == true) {
+        duck4.follow(sprite)
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-    otherSprite.setPosition(82, 57)
-    otherSprite.follow(sprite)
+    if (Cure3 == true && (cure2 == true && Cure1 == true)) {
+        sprites.destroy(otherSprite)
+    } else {
+        info.changeLifeBy(-1)
+        tiles.placeOnTile(otherSprite, tiles.getTileLocation(10, 10))
+        otherSprite.follow(sprite)
+    }
 })
 let Cure3 = false
 let cure2 = false
 let Cure1 = false
+let fight = false
 let duck4: Sprite = null
 let duck3: Sprite = null
 let duck2: Sprite = null
