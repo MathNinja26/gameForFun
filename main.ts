@@ -160,6 +160,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
     info.changeScoreBy(1)
     cure2 = true
     sprites.destroy(otherSprite)
+    if (Cure3 && Cure1) {
+        duck4.setBounceOnWall(true)
+        duck4.setVelocity(200, 200)
+    }
 })
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
@@ -434,6 +438,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part1, function (sprite, otherSp
     info.changeScoreBy(1)
     Cure1 = true
     sprites.destroy(otherSprite)
+    if (Cure3 && cure2) {
+        duck4.setBounceOnWall(true)
+        duck4.setVelocity(200, 200)
+    }
 })
 info.onLifeZero(function () {
     game.setGameOverEffect(false, effects.melt)
@@ -733,7 +741,7 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
     statusbar.attachToSprite(sprite)
     scene.cameraFollowSprite(sprite)
-    if (fight == true) {
+    if (fight == true && enimies == true) {
         duck4.follow(sprite)
     }
 })
@@ -741,6 +749,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part3, function (sprite, otherSp
     info.changeScoreBy(1)
     sprites.destroy(otherSprite)
     Cure3 = true
+    if (Cure1 && cure2) {
+        duck4.setBounceOnWall(true)
+        duck4.setVelocity(200, 200)
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (Cure3 == true && (cure2 == true && Cure1 == true)) {
@@ -762,11 +774,11 @@ let duck: Sprite = null
 let Three: Sprite = null
 let Two: Sprite = null
 let one: Sprite = null
-let Cure3 = false
-let Cure1 = false
 let enimies = false
 let fight = false
 let duck4: Sprite = null
+let Cure1 = false
+let Cure3 = false
 let cure2 = false
 let y = 0
 let x = 0
