@@ -156,6 +156,10 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+function level_2 () {
+    game.showLongText("You are now entering the main section of the grassland save as many normal ducks as you can and cure the rest. ", DialogLayout.Full)
+    tiles.setCurrentTilemap(tilemap`level8`)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     cure2 = true
@@ -759,12 +763,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         enimies = false
         sprites.destroy(otherSprite)
     } else {
-        info.changeLifeBy(-1)
+        statusbar.value += -1
         tiles.placeOnTile(otherSprite, tiles.getTileLocation(10, 10))
         otherSprite.follow(sprite)
     }
     if (enimies == false && final_level == false) {
         game.splash("Next Level!!")
+        level_2()
     }
 })
 let duck3: Sprite = null
@@ -786,7 +791,6 @@ let mySprite: Sprite = null
 let statusbar: StatusBarSprite = null
 let final_level = false
 info.setScore(0)
-info.setLife(3)
 game.setDialogFrame(img`
     ..................................................................
     ............fff........fff.............fff..............ffff......
