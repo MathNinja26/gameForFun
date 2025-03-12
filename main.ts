@@ -159,6 +159,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 function level_2 () {
     game.showLongText("You are now entering the main section of the grassland save as many normal ducks as you can and cure the rest. ", DialogLayout.Full)
     tiles.setCurrentTilemap(tilemap`level8`)
+    lvl1 = false
     Cure1 = false
     cure2 = false
     Cure3 = false
@@ -340,6 +341,24 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Friend, function (sprite, otherSprite) {
     info.changeScoreBy(5)
     sprites.destroy(otherSprite)
+    sprite.follow(sprites.create(img`
+        . . . . . . . . . . b 5 b . . . 
+        . . . . . . . . . b 5 b . . . . 
+        . . . . . . b b b b b b . . . . 
+        . . . . . b b 5 5 5 5 5 b . . . 
+        . . . . b b 5 d 1 f 5 5 d f . . 
+        . . . . b 5 5 1 f f 5 d 4 c . . 
+        . . . . b 5 5 d f b d d 4 4 . . 
+        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+        b d d d b b d 5 5 4 4 4 4 4 b . 
+        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+        c b d c d 5 5 b 5 5 5 5 5 5 b . 
+        . c d d c c b d 5 5 5 5 5 d b . 
+        . . c b d d d d d 5 5 5 b b . . 
+        . . . c c c c c c c c b b . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Friend))
 })
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
@@ -363,6 +382,7 @@ function Level_1 () {
         `, SpriteKind.Enemy)
     fight = true
     enimies = true
+    lvl1 = true
     sprites.destroy(mySprite)
     mySprite = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -945,6 +965,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         sprites.destroy(duck4)
         sprites.destroy(mySprite)
         game.splash("Next Level!!")
+        if (lvl1) {
+            level_2()
+        }
     }
 })
 let duck3: Sprite = null
@@ -962,6 +985,7 @@ let Normal: Sprite = null
 let Cure3 = false
 let cure2 = false
 let Cure1 = false
+let lvl1 = false
 let y = 0
 let x = 0
 let mySprite: Sprite = null
@@ -1061,4 +1085,3 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
 Level_1()
-level_2()
