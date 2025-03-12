@@ -924,6 +924,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     }
     if (enimies == false && final_level == false) {
         sprites.destroy(duck4)
+        sprites.destroy(mySprite)
         game.splash("Next Level!!")
         level_2()
     }
