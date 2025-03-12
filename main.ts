@@ -161,7 +161,285 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
     cure2 = true
     sprites.destroy(otherSprite)
 })
-function prolouge () {
+function Level_1 () {
+    tiles.setCurrentTilemap(tilemap`level4`)
+    duck4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 8 7 b . . . 
+        . . . . . . . . . 8 7 8 . . . . 
+        . . . . . . 8 8 8 8 8 8 . . . . 
+        . . . . . 8 8 7 7 7 7 7 8 . . . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+        . . . c c c c c c c c 8 8 . . . 
+        `, SpriteKind.Enemy)
+    fight = true
+    enimies = true
+    sprites.destroy(mySprite)
+    mySprite = sprites.create(img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `, SpriteKind.Player)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
+    tiles.placeOnTile(duck4, tiles.getTileLocation(5, 5))
+    Cure1 = false
+    cure2 = false
+    Cure3 = false
+    duck4.follow(mySprite, 100)
+    one = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        .........bb.........
+        ........cccc........
+        ........cccc........
+        .........ff.........
+        .........bf.........
+        .........bb.........
+        ........bbbb........
+        .......bbbbbb.......
+        .......bbbbbb.......
+        .......bbbbbb.......
+        .......bbbbbc.......
+        ........cccc........
+        ....................
+        ....................
+        `, SpriteKind.Part1)
+    tiles.placeOnRandomTile(one, sprites.castle.tileDarkGrass2)
+    Two = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ........4eee........
+        .......eeeeee.......
+        .........cc.........
+        .........ec.........
+        ........eeee........
+        .......ee4eee.......
+        ......ee4eeeee......
+        .....ee4eeeeeee.....
+        .....eeeeeeeeee.....
+        .....eeeeeeeecc.....
+        ......eeeeeecc......
+        .......eccccc.......
+        ....................
+        ....................
+        `, SpriteKind.Part2)
+    tiles.placeOnRandomTile(Two, sprites.castle.tileDarkGrass1)
+    Three = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        .........888........
+        .........888........
+        ......888888888.....
+        ........fffff.......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        ......888888888.....
+        ......fffffffff.....
+        ....................
+        ....................
+        `, SpriteKind.Part3)
+    tiles.placeOnRandomTile(Three, sprites.castle.tileDarkGrass3)
+}
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    while (controller.right.isPressed()) {
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f f f f f . . . . 
+            . . . . f f e e e e f 2 f . . . 
+            . . . f f e e e e f 2 2 2 f . . 
+            . . . f e e e f f e e e e f . . 
+            . . . f f f f e e 2 2 2 2 e f . 
+            . . . f e 2 2 2 f f f f e 2 f . 
+            . . f f f f f f f e e e f f f . 
+            . . f f e 4 4 e b f 4 4 e e f . 
+            . . f e e 4 d 4 1 f d d e f . . 
+            . . . f e e e 4 d d d d f . . . 
+            . . . . 4 d d e 4 4 4 e f . . . 
+            . . . . e d d e 2 2 2 2 f . . . 
+            . . . . f e e f 4 4 5 5 f f . . 
+            . . . . f f f f f f f f f f . . 
+            . . . . . f f . . . f f f . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . . . f f f f f f . . . . 
+            . . . . f f e e e e f 2 f . . . 
+            . . . f f e e e e f 2 2 2 f . . 
+            . . . f e e e f f e e e e f . . 
+            . . . f f f f e e 2 2 2 2 e f . 
+            . . . f e 2 2 2 f f f f e 2 f . 
+            . . f f f f f f f e e e f f f . 
+            . . f f e 4 4 e b f 4 4 e e f . 
+            . . f e e 4 d 4 1 f d d e f . . 
+            . . . f e e e 4 d d d d f . . . 
+            . . . . f f e e 4 4 4 e f . . . 
+            . . . . . 4 d d e 2 2 2 f . . . 
+            . . . . . e d d e 2 2 2 f . . . 
+            . . . . . f e e f 4 5 5 f . . . 
+            . . . . . . f f f f f f . . . . 
+            . . . . . . . f f f . . . . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+    }
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    while (controller.down.isPressed()) {
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f f f . . . . . . 
+            . . . . f f f 2 2 f f f . . . . 
+            . . . f f f 2 2 2 2 f f f . . . 
+            . . f f f e e e e e e f f f . . 
+            . . f f e 2 2 2 2 2 2 e e f . . 
+            . f f e 2 f f f f f f 2 e f f . 
+            . f f f f f e e e e f f f f f . 
+            . . f e f b f 4 4 f b f e f . . 
+            . . f e 4 1 f d d f 1 4 e f . . 
+            . . . f e 4 d d d d 4 e f e . . 
+            . . f e f 2 2 2 2 e d d 4 e . . 
+            . . e 4 f 2 2 2 2 e d d e . . . 
+            . . . . f 4 4 5 5 f e e . . . . 
+            . . . . f f f f f f f . . . . . 
+            . . . . f f f . . . . . . . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . . . f f f f . . . . . . 
+            . . . . f f f 2 2 f f f . . . . 
+            . . . f f f 2 2 2 2 f f f . . . 
+            . . f f f e e e e e e f f f . . 
+            . . f f e 2 2 2 2 2 2 e e f . . 
+            . . f e 2 f f f f f f 2 e f . . 
+            . . f f f f e e e e f f f f . . 
+            . f f e f b f 4 4 f b f e f f . 
+            . f e e 4 1 f d d f 1 4 e e f . 
+            . . f e e d d d d d d e e f . . 
+            . . . f e e 4 4 4 4 e e f . . . 
+            . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+            . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+            . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+            . . . . . f f f f f f . . . . . 
+            . . . . . f f . . f f . . . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f f f . . . . . . 
+            . . . . f f f 2 2 f f f . . . . 
+            . . . f f f 2 2 2 2 f f f . . . 
+            . . f f f e e e e e e f f f . . 
+            . . f e e 2 2 2 2 2 2 e f f . . 
+            . f f e 2 f f f f f f 2 e f f . 
+            . f f f f f e e e e f f f f f . 
+            . . f e f b f 4 4 f b f e f . . 
+            . . f e 4 1 f d d f 1 4 e f . . 
+            . . e f e 4 d d d d 4 e f . . . 
+            . . e 4 d d e 2 2 2 2 f e f . . 
+            . . . e d d e 2 2 2 2 f 4 e . . 
+            . . . . e e f 5 5 4 4 f . . . . 
+            . . . . . f f f f f f f . . . . 
+            . . . . . . . . . f f f . . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . . . f f f f . . . . . . 
+            . . . . f f f 2 2 f f f . . . . 
+            . . . f f f 2 2 2 2 f f f . . . 
+            . . f f f e e e e e e f f f . . 
+            . . f f e 2 2 2 2 2 2 e e f . . 
+            . . f e 2 f f f f f f 2 e f . . 
+            . . f f f f e e e e f f f f . . 
+            . f f e f b f 4 4 f b f e f f . 
+            . f e e 4 1 f d d f 1 4 e e f . 
+            . . f e e d d d d d d e e f . . 
+            . . . f e e 4 4 4 4 e e f . . . 
+            . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+            . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+            . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+            . . . . . f f f f f f . . . . . 
+            . . . . . f f . . f f . . . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Part1, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    Cure1 = true
+    sprites.destroy(otherSprite)
+})
+info.onLifeZero(function () {
+    game.setGameOverEffect(false, effects.melt)
+    game.gameOver(false)
+})
+function prologue () {
     game.setDialogFrame(img`
         88888..8888888888888888....88888.
         87768888777877787778777888867778.
@@ -451,283 +729,6 @@ function prolouge () {
     sprites.destroy(duck4)
     game.showLongText("Your job is to collect the three items for the cure in each level and once you have all three you need to cure the infected ducks.", DialogLayout.Full)
 }
-function Level_1 () {
-    tiles.setCurrentTilemap(tilemap`level4`)
-    duck4 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . 8 7 b . . . 
-        . . . . . . . . . 8 7 8 . . . . 
-        . . . . . . 8 8 8 8 8 8 . . . . 
-        . . . . . 8 8 7 7 7 7 7 8 . . . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
-        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
-        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
-        . . . c c c c c c c c 8 8 . . . 
-        `, SpriteKind.Enemy)
-    fight = true
-    sprites.destroy(mySprite)
-    mySprite = sprites.create(img`
-        . . . . . . f f f f . . . . . . 
-        . . . . f f f 2 2 f f f . . . . 
-        . . . f f f 2 2 2 2 f f f . . . 
-        . . f f f e e e e e e f f f . . 
-        . . f f e 2 2 2 2 2 2 e e f . . 
-        . . f e 2 f f f f f f 2 e f . . 
-        . . f f f f e e e e f f f f . . 
-        . f f e f b f 4 4 f b f e f f . 
-        . f e e 4 1 f d d f 1 4 e e f . 
-        . . f e e d d d d d d e e f . . 
-        . . . f e e 4 4 4 4 e e f . . . 
-        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-        . . . . . f f f f f f . . . . . 
-        . . . . . f f . . f f . . . . . 
-        `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
-    tiles.placeOnTile(duck4, tiles.getTileLocation(5, 5))
-    Cure1 = false
-    cure2 = false
-    Cure3 = false
-    duck4.follow(mySprite, 100)
-    one = sprites.create(img`
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        .........bb.........
-        ........cccc........
-        ........cccc........
-        .........ff.........
-        .........bf.........
-        .........bb.........
-        ........bbbb........
-        .......bbbbbb.......
-        .......bbbbbb.......
-        .......bbbbbb.......
-        .......bbbbbc.......
-        ........cccc........
-        ....................
-        ....................
-        `, SpriteKind.Part1)
-    tiles.placeOnRandomTile(one, sprites.castle.tileDarkGrass2)
-    Two = sprites.create(img`
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        ........4eee........
-        .......eeeeee.......
-        .........cc.........
-        .........ec.........
-        ........eeee........
-        .......ee4eee.......
-        ......ee4eeeee......
-        .....ee4eeeeeee.....
-        .....eeeeeeeeee.....
-        .....eeeeeeeecc.....
-        ......eeeeeecc......
-        .......eccccc.......
-        ....................
-        ....................
-        `, SpriteKind.Part2)
-    tiles.placeOnRandomTile(Two, sprites.castle.tileDarkGrass1)
-    Three = sprites.create(img`
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        .........888........
-        .........888........
-        ......888888888.....
-        ........fffff.......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        ......888888888.....
-        ......fffffffff.....
-        ....................
-        ....................
-        `, SpriteKind.Part3)
-    tiles.placeOnRandomTile(Three, sprites.castle.tileDarkGrass3)
-}
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    while (controller.right.isPressed()) {
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . f f f f f f . . . . 
-            . . . . f f e e e e f 2 f . . . 
-            . . . f f e e e e f 2 2 2 f . . 
-            . . . f e e e f f e e e e f . . 
-            . . . f f f f e e 2 2 2 2 e f . 
-            . . . f e 2 2 2 f f f f e 2 f . 
-            . . f f f f f f f e e e f f f . 
-            . . f f e 4 4 e b f 4 4 e e f . 
-            . . f e e 4 d 4 1 f d d e f . . 
-            . . . f e e e 4 d d d d f . . . 
-            . . . . 4 d d e 4 4 4 e f . . . 
-            . . . . e d d e 2 2 2 2 f . . . 
-            . . . . f e e f 4 4 5 5 f f . . 
-            . . . . f f f f f f f f f f . . 
-            . . . . . f f . . . f f f . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . . . f f f f f f . . . . 
-            . . . . f f e e e e f 2 f . . . 
-            . . . f f e e e e f 2 2 2 f . . 
-            . . . f e e e f f e e e e f . . 
-            . . . f f f f e e 2 2 2 2 e f . 
-            . . . f e 2 2 2 f f f f e 2 f . 
-            . . f f f f f f f e e e f f f . 
-            . . f f e 4 4 e b f 4 4 e e f . 
-            . . f e e 4 d 4 1 f d d e f . . 
-            . . . f e e e 4 d d d d f . . . 
-            . . . . f f e e 4 4 4 e f . . . 
-            . . . . . 4 d d e 2 2 2 f . . . 
-            . . . . . e d d e 2 2 2 f . . . 
-            . . . . . f e e f 4 5 5 f . . . 
-            . . . . . . f f f f f f . . . . 
-            . . . . . . . f f f . . . . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-    }
-})
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    while (controller.down.isPressed()) {
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . f f f f . . . . . . 
-            . . . . f f f 2 2 f f f . . . . 
-            . . . f f f 2 2 2 2 f f f . . . 
-            . . f f f e e e e e e f f f . . 
-            . . f f e 2 2 2 2 2 2 e e f . . 
-            . f f e 2 f f f f f f 2 e f f . 
-            . f f f f f e e e e f f f f f . 
-            . . f e f b f 4 4 f b f e f . . 
-            . . f e 4 1 f d d f 1 4 e f . . 
-            . . . f e 4 d d d d 4 e f e . . 
-            . . f e f 2 2 2 2 e d d 4 e . . 
-            . . e 4 f 2 2 2 2 e d d e . . . 
-            . . . . f 4 4 5 5 f e e . . . . 
-            . . . . f f f f f f f . . . . . 
-            . . . . f f f . . . . . . . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . . . f f f f . . . . . . 
-            . . . . f f f 2 2 f f f . . . . 
-            . . . f f f 2 2 2 2 f f f . . . 
-            . . f f f e e e e e e f f f . . 
-            . . f f e 2 2 2 2 2 2 e e f . . 
-            . . f e 2 f f f f f f 2 e f . . 
-            . . f f f f e e e e f f f f . . 
-            . f f e f b f 4 4 f b f e f f . 
-            . f e e 4 1 f d d f 1 4 e e f . 
-            . . f e e d d d d d d e e f . . 
-            . . . f e e 4 4 4 4 e e f . . . 
-            . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-            . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-            . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-            . . . . . f f f f f f . . . . . 
-            . . . . . f f . . f f . . . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . f f f f . . . . . . 
-            . . . . f f f 2 2 f f f . . . . 
-            . . . f f f 2 2 2 2 f f f . . . 
-            . . f f f e e e e e e f f f . . 
-            . . f e e 2 2 2 2 2 2 e f f . . 
-            . f f e 2 f f f f f f 2 e f f . 
-            . f f f f f e e e e f f f f f . 
-            . . f e f b f 4 4 f b f e f . . 
-            . . f e 4 1 f d d f 1 4 e f . . 
-            . . e f e 4 d d d d 4 e f . . . 
-            . . e 4 d d e 2 2 2 2 f e f . . 
-            . . . e d d e 2 2 2 2 f 4 e . . 
-            . . . . e e f 5 5 4 4 f . . . . 
-            . . . . . f f f f f f f . . . . 
-            . . . . . . . . . f f f . . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . . . f f f f . . . . . . 
-            . . . . f f f 2 2 f f f . . . . 
-            . . . f f f 2 2 2 2 f f f . . . 
-            . . f f f e e e e e e f f f . . 
-            . . f f e 2 2 2 2 2 2 e e f . . 
-            . . f e 2 f f f f f f 2 e f . . 
-            . . f f f f e e e e f f f f . . 
-            . f f e f b f 4 4 f b f e f f . 
-            . f e e 4 1 f d d f 1 4 e e f . 
-            . . f e e d d d d d d e e f . . 
-            . . . f e e 4 4 4 4 e e f . . . 
-            . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-            . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-            . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-            . . . . . f f f f f f . . . . . 
-            . . . . . f f . . f f . . . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-    }
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Part1, function (sprite, otherSprite) {
-    info.changeScoreBy(1)
-    Cure1 = true
-    sprites.destroy(otherSprite)
-})
-info.onLifeZero(function () {
-    game.setGameOverEffect(false, effects.melt)
-    game.gameOver(false)
-})
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
     statusbar.attachToSprite(sprite)
@@ -743,35 +744,109 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part3, function (sprite, otherSp
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (Cure3 == true && (cure2 == true && Cure1 == true)) {
+        enimies = false
         sprites.destroy(otherSprite)
     } else {
         info.changeLifeBy(-1)
         tiles.placeOnTile(otherSprite, tiles.getTileLocation(10, 10))
         otherSprite.follow(sprite)
     }
+    if (enimies == false && final_level == false) {
+        game.splash("Next Level!!")
+    }
 })
+let duck3: Sprite = null
+let duck2: Sprite = null
+let duck1: Sprite = null
+let duck: Sprite = null
 let Three: Sprite = null
 let Two: Sprite = null
 let one: Sprite = null
 let Cure3 = false
 let Cure1 = false
+let enimies = false
 let fight = false
 let duck4: Sprite = null
-let duck3: Sprite = null
-let duck2: Sprite = null
-let duck1: Sprite = null
-let duck: Sprite = null
 let cure2 = false
 let y = 0
 let x = 0
 let mySprite: Sprite = null
 let statusbar: StatusBarSprite = null
-scene.setBackgroundColor(7)
+let final_level = false
 info.setScore(0)
 info.setLife(3)
-let maybe = game.askForString("Would you like to see the polouge? yes or no", 3)
+game.setDialogFrame(img`
+    ..................................................................
+    ............fff........fff.............fff..............ffff......
+    ...........fddbf......fbdbf...........fbdbf............fbddf......
+    ...........fddbbf.....fdddffff........fdddffff...fff..ffddbff.....
+    ...........fddddffffffbdddbddbffffffffbdddbddbffffddffddddddf.....
+    ...fff....fdddddfddddddddbbddddddddddddddbbddddddfdddddbccddf.....
+    .fffddf..fddffffddddddddddbbddddddddddddddbbdddddffbddbbddff......
+    .fdbddfffddfffdddfffffbdddbddbffffffffbdddbddbfffefddccbddf.......
+    .fdddcddddffeffffeeeeefbdbfddfeeeeeeeefbdbfddfeeeefffcddddf.......
+    .fbddcddddfeeeeeeeeeeeefffffffeeeeeeeeefffffffeeeeeeefdddddf......
+    ..ffdbbbddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefffffddf.....
+    ...fddbcddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffddfff..
+    ....fddccffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffddddf.
+    ....fdddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefffddddf.
+    ...fddbdfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdfddbbf.
+    ...fddfffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdfddbf..
+    ...ffffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddfff...
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ...fbddbffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ...fdddddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ...fddbddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefbddbff..
+    ..ffbbbbffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefbdddddbf.
+    .fbddbddbfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdddddddf.
+    .fdddddddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefbddbddbf.
+    .fbdddddbfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffbbbbff..
+    ..ffbddbfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddbddf...
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdddddf...
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffbddbf...
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ...fbddbffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ...fdddddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ...fddbddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefbddbff..
+    ..ffbbbbffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefbdddddbf.
+    .fbddbddbfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdddddddf.
+    .fdddddddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefbddbddbf.
+    .fbdddddbfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffbbbbff..
+    ..ffbddbfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddbddf...
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdddddf...
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffbddbf...
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ....fddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddf....
+    ...fffddfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffff...
+    ..fbddfdfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefffddf...
+    .fbbddfdfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdbddf...
+    .fddddfffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefdddf....
+    .fddddffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffccddf....
+    ..fffddffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddcbddf...
+    .....fddfffffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefddbbbdff..
+    ......fdddddfeeeeeeefffffffeeeeeeeeefffffffeeeeeeeeeeeefddddcddbf.
+    .......fddddcfffeeeefddfbdbfeeeeeeeefddfbdbfeeeeeffffeffddddcdddf.
+    .......fddbccddfefffbddbdddbffffffffbddbdddbfffffdddfffddfffddbdf.
+    ......ffddbbddbffdddddbbddddddddddddddbbddddddddddffffddf..fddfff.
+    .....fddccbdddddfddddddbbddddddddddddddbbddddddddfdddddf....fff...
+    .....fddddddffddffffbddbdddbffffffffbddbdddbffffffddddf...........
+    .....ffbddff..fff...ffffdddf........ffffdddf.....fbbddf...........
+    ......fddbf............fbdbf...........fbdbf......fbddf...........
+    ......ffff..............fff.............fff........fff............
+    ..................................................................
+    `)
+final_level = false
+let maybe = game.askForString("Would you like to see the pologue? yes or no", 3)
 if (maybe == "yes") {
-    prolouge()
+    prologue()
 }
 statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
 mySprite = sprites.create(img`
@@ -792,4 +867,5 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
 Level_1()
