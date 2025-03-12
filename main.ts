@@ -741,6 +741,9 @@ function prologue () {
     sprites.destroy(duck4)
     game.showLongText("Your job is to collect the three items for the cure in each level and once you have all three you need to cure the infected ducks.", DialogLayout.Full)
 }
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+})
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
     statusbar.attachToSprite(sprite)
