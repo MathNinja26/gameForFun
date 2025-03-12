@@ -162,6 +162,27 @@ function level_2 () {
     Cure1 = false
     cure2 = false
     Cure3 = false
+    for (let index = 0; index < 15; index++) {
+        Normal = sprites.create(img`
+            . . . . . . . . . . b 5 b . . . 
+            . . . . . . . . . b 5 b . . . . 
+            . . . . . . b b b b b b . . . . 
+            . . . . . b b 5 5 5 5 5 b . . . 
+            . . . . b b 5 d 1 f 5 5 d f . . 
+            . . . . b 5 5 1 f f 5 d 4 c . . 
+            . . . . b 5 5 d f b d d 4 4 . . 
+            . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+            b d d d b b d 5 5 4 4 4 4 4 b . 
+            b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+            c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+            c b d c d 5 5 b 5 5 5 5 5 5 b . 
+            . c d d c c b d 5 5 5 5 5 d b . 
+            . . c b d d d d d 5 5 5 b b . . 
+            . . . c c c c c c c c b b . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Friend)
+        tiles.placeOnRandomTile(Normal, sprites.castle.tileGrass1)
+    }
     one = sprites.create(img`
         ....................
         ....................
@@ -231,6 +252,62 @@ function level_2 () {
         ....................
         `, SpriteKind.Part3)
     tiles.placeOnRandomTile(Three, sprites.castle.tileDarkGrass3)
+    duck4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 8 7 b . . . 
+        . . . . . . . . . 8 7 8 . . . . 
+        . . . . . . 8 8 8 8 8 8 . . . . 
+        . . . . . 8 8 7 7 7 7 7 8 . . . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+        . . . c c c c c c c c 8 8 . . . 
+        `, SpriteKind.Enemy)
+    fight = true
+    enimies = true
+    mutated = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 8 7 b . . . 
+        . . . . . . . . . 8 7 8 . . . . 
+        . . . . . . 8 8 8 8 8 8 . . . . 
+        . . . . . 8 8 7 7 7 7 7 8 . . . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+        . . . c c c c c c c c 8 8 . . . 
+        `, SpriteKind.Enemy)
+    mutated.follow(sprites.create(img`
+        . . . . . . . . . . b 5 b . . . 
+        . . . . . . . . . b 5 b . . . . 
+        . . . . . . b b b b b b . . . . 
+        . . . . . b b 5 5 5 5 5 b . . . 
+        . . . . b b 5 d 1 f 5 5 d f . . 
+        . . . . b 5 5 1 f f 5 d 4 c . . 
+        . . . . b 5 5 d f b d d 4 4 . . 
+        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+        b d d d b b d 5 5 4 4 4 4 4 b . 
+        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+        c b d c d 5 5 b 5 5 5 5 5 5 b . 
+        . c d d c c b d 5 5 5 5 5 d b . 
+        . . c b d d d d d 5 5 5 b b . . 
+        . . . c c c c c c c c b b . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Friend))
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -240,6 +317,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
         duck4.setBounceOnWall(true)
         duck4.setVelocity(200, 200)
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Friend, function (sprite, otherSprite) {
+    info.changeScoreBy(5)
+    sprites.destroy(otherSprite)
 })
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
@@ -818,7 +899,6 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSp
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
-    statusbar.attachToSprite(sprite)
     scene.cameraFollowSprite(sprite)
     if (fight == true && enimies == true) {
         duck4.follow(sprite)
@@ -838,11 +918,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         enimies = false
         sprites.destroy(otherSprite)
     } else {
-        statusbar.value += -1
+        info.changeLifeBy(-1)
         tiles.placeOnTile(otherSprite, tiles.getTileLocation(10, 10))
         otherSprite.follow(sprite)
     }
     if (enimies == false && final_level == false) {
+        sprites.destroy(duck4)
         game.splash("Next Level!!")
         level_2()
     }
@@ -851,20 +932,22 @@ let duck3: Sprite = null
 let duck2: Sprite = null
 let duck1: Sprite = null
 let duck: Sprite = null
+let mutated: Sprite = null
 let enimies = false
 let fight = false
 let duck4: Sprite = null
 let Three: Sprite = null
 let Two: Sprite = null
 let one: Sprite = null
+let Normal: Sprite = null
 let Cure3 = false
 let cure2 = false
 let Cure1 = false
 let y = 0
 let x = 0
 let mySprite: Sprite = null
-let statusbar: StatusBarSprite = null
 let final_level = false
+info.setLife(10)
 info.setScore(0)
 game.setDialogFrame(img`
     ..................................................................
@@ -939,7 +1022,6 @@ let maybe = game.askForString("Would you like to see the pologue? yes or no", 3)
 if (maybe == "yes") {
     prologue()
 }
-statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
 mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
