@@ -945,7 +945,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         sprites.destroy(duck4)
         sprites.destroy(mySprite)
         game.splash("Next Level!!")
-        level_2()
     }
 })
 let duck3: Sprite = null
@@ -1062,3 +1061,4 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
 Level_1()
+level_2()
