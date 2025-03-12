@@ -486,6 +486,10 @@ function Level_1 () {
         . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
         . . . c c c c c c c c 8 8 . . . 
         `, SpriteKind.Enemy)
+    Cure1 = false
+    cure2 = false
+    Cure3 = false
+    duck4.follow(mySprite)
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
@@ -639,11 +643,21 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+info.onLifeZero(function () {
+    game.gameOver(false)
+})
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite)
     statusbar.attachToSprite(sprite)
     scene.cameraFollowSprite(sprite)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    otherSprite.setPosition(82, 57)
+})
+let Cure3 = false
+let cure2 = false
+let Cure1 = false
 let duck4: Sprite = null
 let duck3: Sprite = null
 let duck2: Sprite = null
@@ -656,7 +670,10 @@ let statusbar: StatusBarSprite = null
 scene.setBackgroundColor(7)
 info.setScore(0)
 info.setLife(3)
-prolouge()
+let maybe = game.askForString("Would you like to see the polouge? yes or no", 3)
+if (maybe == "yes") {
+    prolouge()
+}
 statusbar = statusbars.create(20, 4, StatusBarKind.Energy)
 mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
