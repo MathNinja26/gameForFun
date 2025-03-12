@@ -483,10 +483,11 @@ function Level_1 () {
         . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
         . . . c c c c c c c c 8 8 . . . 
         `, SpriteKind.Enemy)
+    tiles.placeOnTile(duck4, tiles.getTileLocation(10, 10))
     Cure1 = false
     cure2 = false
     Cure3 = false
-    duck4.follow(mySprite)
+    duck4.follow(mySprite, 100)
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
@@ -641,10 +642,11 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 info.onLifeZero(function () {
+    game.setGameOverEffect(false, effects.melt)
     game.gameOver(false)
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
-    controller.moveSprite(sprite)
+    controller.moveSprite(sprite, 150, 150)
     statusbar.attachToSprite(sprite)
     scene.cameraFollowSprite(sprite)
 })
