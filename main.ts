@@ -101,9 +101,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-	
-})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -654,6 +651,7 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
     otherSprite.setPosition(82, 57)
+    otherSprite.follow(sprite)
 })
 let Cure3 = false
 let cure2 = false
