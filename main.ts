@@ -181,6 +181,7 @@ function level_2 () {
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
+    lvl2 = true
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
     for (let index = 0; index < 15; index++) {
         Normal = sprites.create(img`
@@ -310,6 +311,7 @@ function level_2 () {
         . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
         . . . c c c c c c c c 8 8 . . . 
         `, SpriteKind.Enemy)
+    tiles.placeOnRandomTile(mutated, sprites.castle.tileDarkGrass1)
     mutated.follow(sprites.create(img`
         . . . . . . . . . . b 5 b . . . 
         . . . . . . . . . b 5 b . . . . 
@@ -327,7 +329,7 @@ function level_2 () {
         . . c b d d d d d 5 5 5 b b . . 
         . . . c c c c c c c c b b . . . 
         . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Friend))
+        `, SpriteKind.Friend), 150)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -340,25 +342,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Friend, function (sprite, otherSprite) {
     info.changeScoreBy(5)
-    sprites.destroy(otherSprite)
-    sprite.follow(sprites.create(img`
-        . . . . . . . . . . b 5 b . . . 
-        . . . . . . . . . b 5 b . . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . . . . b b 5 d 1 f 5 5 d f . . 
-        . . . . b 5 5 1 f f 5 d 4 c . . 
-        . . . . b 5 5 d f b d d 4 4 . . 
-        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
-        b d d d b b d 5 5 4 4 4 4 4 b . 
-        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
-        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
-        c b d c d 5 5 b 5 5 5 5 5 5 b . 
-        . c d d c c b d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Friend))
+    sprites.destroy(otherSprite, effects.fire, 500)
 })
 function Level_1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
@@ -383,6 +367,7 @@ function Level_1 () {
     fight = true
     enimies = true
     lvl1 = true
+    lvl2 = false
     sprites.destroy(mySprite)
     mySprite = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -935,11 +920,86 @@ function prologue () {
 }
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+    mutated = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 8 7 b . . . 
+        . . . . . . . . . 8 7 8 . . . . 
+        . . . . . . 8 8 8 8 8 8 . . . . 
+        . . . . . 8 8 7 7 7 7 7 8 . . . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+        . . . c c c c c c c c 8 8 . . . 
+        `, SpriteKind.Enemy)
+    mutated.follow(sprites.create(img`
+        . . . . . . . . . . b 5 b . . . 
+        . . . . . . . . . b 5 b . . . . 
+        . . . . . . b b b b b b . . . . 
+        . . . . . b b 5 5 5 5 5 b . . . 
+        . . . . b b 5 d 1 f 5 5 d f . . 
+        . . . . b 5 5 1 f f 5 d 4 c . . 
+        . . . . b 5 5 d f b d d 4 4 . . 
+        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+        b d d d b b d 5 5 4 4 4 4 4 b . 
+        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+        c b d c d 5 5 b 5 5 5 5 5 5 b . 
+        . c d d c c b d 5 5 5 5 5 d b . 
+        . . c b d d d d d 5 5 5 b b . . 
+        . . . c c c c c c c c b b . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Friend))
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
     scene.cameraFollowSprite(sprite)
-    if (fight == true && enimies == true) {
+    if (lvl2 == true) {
+        mutated = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . 8 7 b . . . 
+            . . . . . . . . . 8 7 8 . . . . 
+            . . . . . . 8 8 8 8 8 8 . . . . 
+            . . . . . 8 8 7 7 7 7 7 8 . . . 
+            . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+            . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+            . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+            . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+            8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+            8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+            c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+            c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+            . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+            . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+            . . . c c c c c c c c 8 8 . . . 
+            `, SpriteKind.Enemy)
+        mutated.follow(sprites.create(img`
+            . . . . . . . . . . b 5 b . . . 
+            . . . . . . . . . b 5 b . . . . 
+            . . . . . . b b b b b b . . . . 
+            . . . . . b b 5 5 5 5 5 b . . . 
+            . . . . b b 5 d 1 f 5 5 d f . . 
+            . . . . b 5 5 1 f f 5 d 4 c . . 
+            . . . . b 5 5 d f b d d 4 4 . . 
+            . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+            b d d d b b d 5 5 4 4 4 4 4 b . 
+            b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+            c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+            c b d c d 5 5 b 5 5 5 5 5 5 b . 
+            . c d d c c b d 5 5 5 5 5 d b . 
+            . . c b d d d d d 5 5 5 b b . . 
+            . . . c c c c c c c c b b . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Friend), 150)
+    }
+    if (Cure3 == false || (cure2 == false || Cure1 == false)) {
         duck4.follow(sprite)
     }
 })
@@ -962,7 +1022,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         otherSprite.follow(sprite)
     }
     if (enimies == false && final_level == false) {
-        sprites.destroy(duck4)
+        sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
         sprites.destroy(mySprite)
         game.splash("Next Level!!")
         if (lvl1) {
@@ -977,19 +1037,41 @@ let duck: Sprite = null
 let mutated: Sprite = null
 let enimies = false
 let fight = false
-let duck4: Sprite = null
 let Three: Sprite = null
 let Two: Sprite = null
 let one: Sprite = null
 let Normal: Sprite = null
-let Cure3 = false
-let cure2 = false
-let Cure1 = false
+let lvl2 = false
 let lvl1 = false
 let y = 0
 let x = 0
 let mySprite: Sprite = null
 let final_level = false
+let Cure3 = false
+let cure2 = false
+let Cure1 = false
+let duck4: Sprite = null
+duck4 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . 8 7 b . . . 
+    . . . . . . . . . 8 7 8 . . . . 
+    . . . . . . 8 8 8 8 8 8 . . . . 
+    . . . . . 8 8 7 7 7 7 7 8 . . . 
+    . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+    . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+    . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+    . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+    8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+    8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+    c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+    c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+    . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+    . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+    . . . c c c c c c c c 8 8 . . . 
+    `, SpriteKind.Enemy)
+Cure1 = false
+cure2 = false
+Cure3 = false
 info.setLife(10)
 info.setScore(0)
 game.setDialogFrame(img`
@@ -1084,4 +1166,5 @@ mySprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
+sprites.destroy(duck4)
 Level_1()
