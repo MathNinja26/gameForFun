@@ -3,6 +3,7 @@ namespace SpriteKind {
     export const Part1 = SpriteKind.create()
     export const Part2 = SpriteKind.create()
     export const Part3 = SpriteKind.create()
+    export const Chaser = SpriteKind.create()
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
@@ -183,7 +184,7 @@ function level_2 () {
         `, SpriteKind.Player)
     lvl2 = true
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
-    for (let index = 0; index < 15; index++) {
+    for (let index = 0; index < 10; index++) {
         Normal = sprites.create(img`
             . . . . . . . . . . b 5 b . . . 
             . . . . . . . . . b 5 b . . . . 
@@ -293,44 +294,11 @@ function level_2 () {
         `, SpriteKind.Enemy)
     fight = true
     enimies = true
-    mutated = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . 8 7 b . . . 
-        . . . . . . . . . 8 7 8 . . . . 
-        . . . . . . 8 8 8 8 8 8 . . . . 
-        . . . . . 8 8 7 7 7 7 7 8 . . . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
-        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
-        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
-        . . . c c c c c c c c 8 8 . . . 
-        `, SpriteKind.Enemy)
-    tiles.placeOnRandomTile(mutated, sprites.castle.tileDarkGrass1)
-    mutated.follow(sprites.create(img`
-        . . . . . . . . . . b 5 b . . . 
-        . . . . . . . . . b 5 b . . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . . . . b b 5 d 1 f 5 5 d f . . 
-        . . . . b 5 5 1 f f 5 d 4 c . . 
-        . . . . b 5 5 d f b d d 4 4 . . 
-        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
-        b d d d b b d 5 5 4 4 4 4 4 b . 
-        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
-        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
-        c b d c d 5 5 b 5 5 5 5 5 5 b . 
-        . c d d c c b d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Friend), 150)
 }
+sprites.onOverlap(SpriteKind.Chaser, SpriteKind.Friend, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    sprites.destroy(sprite)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     cure2 = true
@@ -918,46 +886,6 @@ function prologue () {
     sprites.destroy(duck4)
     game.showLongText("Your job is to collect the three items for the cure in each level and once you have all three you need to cure the infected ducks.", DialogLayout.Full)
 }
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite)
-    sprites.destroy(sprite)
-    mutated = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . 8 7 b . . . 
-        . . . . . . . . . 8 7 8 . . . . 
-        . . . . . . 8 8 8 8 8 8 . . . . 
-        . . . . . 8 8 7 7 7 7 7 8 . . . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
-        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
-        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
-        . . . c c c c c c c c 8 8 . . . 
-        `, SpriteKind.Enemy)
-    mutated.follow(sprites.create(img`
-        . . . . . . . . . . b 5 b . . . 
-        . . . . . . . . . b 5 b . . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . . . . b b 5 d 1 f 5 5 d f . . 
-        . . . . b 5 5 1 f f 5 d 4 c . . 
-        . . . . b 5 5 d f b d d 4 4 . . 
-        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
-        b d d d b b d 5 5 4 4 4 4 4 b . 
-        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
-        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
-        c b d c d 5 5 b 5 5 5 5 5 5 b . 
-        . c d d c c b d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Friend))
-})
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
     scene.cameraFollowSprite(sprite)
@@ -1030,11 +958,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         }
     }
 })
+let mutated: Sprite = null
 let duck3: Sprite = null
 let duck2: Sprite = null
 let duck1: Sprite = null
 let duck: Sprite = null
-let mutated: Sprite = null
 let enimies = false
 let fight = false
 let Three: Sprite = null
