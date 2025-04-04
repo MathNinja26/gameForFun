@@ -939,6 +939,7 @@ let Cure3 = false
 let cure2 = false
 let Cure1 = false
 let duck4: Sprite = null
+info.setScore(0)
 duck4 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . 8 7 b . . . 
@@ -961,7 +962,6 @@ Cure1 = false
 cure2 = false
 Cure3 = false
 info.setLife(10)
-info.setScore(0)
 game.setDialogFrame(img`
     ..................................................................
     ............fff........fff.............fff..............ffff......
