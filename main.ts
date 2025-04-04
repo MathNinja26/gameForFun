@@ -202,7 +202,7 @@ function level_2 () {
             . . . c c c c c c c c b b . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Friend)
-        tiles.placeOnRandomTile(Normal, sprites.castle.tileGrass1)
+        tiles.placeOnRandomTile(Normal, assets.tile`transparency16`)
     }
     one = sprites.create(img`
         ....................
@@ -226,7 +226,7 @@ function level_2 () {
         ....................
         ....................
         `, SpriteKind.Part1)
-    tiles.placeOnRandomTile(one, sprites.castle.tileGrass2)
+    tiles.placeOnRandomTile(one, assets.tile`transparency16`)
     Two = sprites.create(img`
         ....................
         ....................
@@ -249,7 +249,7 @@ function level_2 () {
         ....................
         ....................
         `, SpriteKind.Part2)
-    tiles.placeOnRandomTile(Two, sprites.castle.tileDarkGrass2)
+    tiles.placeOnRandomTile(Two, assets.tile`transparency16`)
     Three = sprites.create(img`
         ....................
         ....................
@@ -272,7 +272,7 @@ function level_2 () {
         ....................
         ....................
         `, SpriteKind.Part3)
-    tiles.placeOnRandomTile(Three, sprites.castle.tileDarkGrass3)
+    tiles.placeOnRandomTile(Three, assets.tile`transparency16`)
     duck4 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . 8 7 b . . . 
@@ -293,6 +293,7 @@ function level_2 () {
         `, SpriteKind.Enemy)
     fight = true
     enimies = true
+    duck4.follow(mySprite)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -304,7 +305,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Friend, function (sprite, otherSprite) {
-    info.changeScoreBy(5)
+    info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 500)
 })
 function Level_1 () {
@@ -378,7 +379,7 @@ function Level_1 () {
         ....................
         ....................
         `, SpriteKind.Part1)
-    tiles.placeOnRandomTile(one, sprites.castle.tileDarkGrass2)
+    tiles.placeOnRandomTile(one, assets.tile`transparency16`)
     Two = sprites.create(img`
         ....................
         ....................
@@ -401,7 +402,7 @@ function Level_1 () {
         ....................
         ....................
         `, SpriteKind.Part2)
-    tiles.placeOnRandomTile(Two, sprites.castle.tileDarkGrass1)
+    tiles.placeOnRandomTile(Two, assets.tile`transparency16`)
     Three = sprites.create(img`
         ....................
         ....................
@@ -424,7 +425,7 @@ function Level_1 () {
         ....................
         ....................
         `, SpriteKind.Part3)
-    tiles.placeOnRandomTile(Three, sprites.castle.tileDarkGrass3)
+    tiles.placeOnRandomTile(Three, assets.tile`transparency16`)
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
@@ -883,43 +884,6 @@ function prologue () {
 }
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
-    sprites.destroy(sprite)
-    mutated = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . 8 7 b . . . 
-        . . . . . . . . . 8 7 8 . . . . 
-        . . . . . . 8 8 8 8 8 8 . . . . 
-        . . . . . 8 8 7 7 7 7 7 8 . . . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
-        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
-        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
-        . . . c c c c c c c c 8 8 . . . 
-        `, SpriteKind.Enemy)
-    mutated.follow(sprites.create(img`
-        . . . . . . . . . . b 5 b . . . 
-        . . . . . . . . . b 5 b . . . . 
-        . . . . . . b b b b b b . . . . 
-        . . . . . b b 5 5 5 5 5 b . . . 
-        . . . . b b 5 d 1 f 5 5 d f . . 
-        . . . . b 5 5 1 f f 5 d 4 c . . 
-        . . . . b 5 5 d f b d d 4 4 . . 
-        . b b b d 5 5 5 5 5 4 4 4 4 4 b 
-        b d d d b b d 5 5 4 4 4 4 4 b . 
-        b b d 5 5 5 b 5 5 5 5 5 5 b . . 
-        c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
-        c b d c d 5 5 b 5 5 5 5 5 5 b . 
-        . c d d c c b d 5 5 5 5 5 d b . 
-        . . c b d d d d d 5 5 5 b b . . 
-        . . . c c c c c c c c b b . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Friend))
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
