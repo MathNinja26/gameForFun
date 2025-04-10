@@ -293,7 +293,7 @@ function level_2 () {
         `, SpriteKind.Enemy)
     fight = true
     enimies = true
-    duck4.follow(mySprite, 50)
+    duck4.follow(mySprite, 25)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -356,7 +356,7 @@ function Level_1 () {
         `, SpriteKind.Player)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
     tiles.placeOnTile(duck4, tiles.getTileLocation(5, 5))
-    duck4.follow(mySprite, 100)
+    duck4.follow(mySprite, 25)
     one = sprites.create(img`
         ....................
         ....................
