@@ -159,6 +159,11 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 function level3 () {
     lvl3 = true
     tiles.setCurrentTilemap(tilemap`level1`)
+    Cure1 = false
+    cure2 = false
+    Cure3 = false
+    final_level = false
+    lvl2 = false
 }
 function level_2 () {
     game.showLongText("You are now entering the main section of the grassland save as many normal ducks as you can and cure the rest. ", DialogLayout.Full)
@@ -924,6 +929,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         if (lvl1) {
             level_2()
         }
+        if (lvl2) {
+            level3()
+        }
     }
 })
 let duck3: Sprite = null
@@ -936,8 +944,8 @@ let Three: Sprite = null
 let Two: Sprite = null
 let one: Sprite = null
 let Normal: Sprite = null
-let lvl2 = false
 let lvl1 = false
+let lvl2 = false
 let lvl3 = false
 let y = 0
 let x = 0
@@ -1086,5 +1094,4 @@ if (maybe == "yes") {
     game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
     sprites.destroy(duck4)
     Level_1()
-    level3()
 }
