@@ -82,7 +82,7 @@ namespace myTiles {
 2 . . . . . . . . . . . . . . 2 
 2 . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, [myTiles.transparency16,sprites.dungeon.hazardWater,myTiles.tile1], TileScale.Sixteen);
+`, [myTiles.transparency16,sprites.dungeon.hazardWater,sprites.castle.tilePath5], TileScale.Sixteen);
         }
         return null;
     })

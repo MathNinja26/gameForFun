@@ -55,7 +55,7 @@
         "tileset": [
             "myTiles.transparency16",
             "sprites.dungeon.hazardWater",
-            "myTiles.tile1"
+            "sprites.castle.tilePath5"
         ],
         "displayName": "level1"
     },
