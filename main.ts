@@ -104,6 +104,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+function level4 () {
+	
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -1062,6 +1065,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         } else {
             if (lvl2) {
                 level3()
+            } else {
+                if (lvl3) {
+                    level4()
+                }
             }
         }
     }
