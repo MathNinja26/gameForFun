@@ -156,6 +156,9 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+function level3 () {
+	
+}
 function level_2 () {
     game.showLongText("You are now entering the main section of the grassland save as many normal ducks as you can and cure the rest. ", DialogLayout.Full)
     tiles.setCurrentTilemap(tilemap`level8`)
@@ -889,7 +892,10 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite, 150, 150)
     scene.cameraFollowSprite(sprite)
     if (Cure3 == false || (cure2 == false || Cure1 == false)) {
-        duck4.follow(sprite)
+        duck4.follow(sprite, 100)
+        if (true) {
+            duck4.follow(sprite, 115)
+        }
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part3, function (sprite, otherSprite) {
@@ -1055,6 +1061,7 @@ if (maybe == "yes") {
     game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
     sprites.destroy(duck4)
     Level_1()
+    level3()
 } else {
     mySprite = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -1077,4 +1084,5 @@ if (maybe == "yes") {
     game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
     sprites.destroy(duck4)
     Level_1()
+    level3()
 }
