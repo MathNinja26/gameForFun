@@ -293,7 +293,7 @@ function level_2 () {
         `, SpriteKind.Enemy)
     fight = true
     enimies = true
-    duck4.follow(mySprite, 25)
+    duck4.follow(mySprite, 5)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSprite) {
     info.changeScoreBy(1)
