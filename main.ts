@@ -157,7 +157,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function level3 () {
-	
+    lvl3 = true
+    tiles.setCurrentTilemap(tilemap`level1`)
 }
 function level_2 () {
     game.showLongText("You are now entering the main section of the grassland save as many normal ducks as you can and cure the rest. ", DialogLayout.Full)
@@ -893,7 +894,7 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
     scene.cameraFollowSprite(sprite)
     if (Cure3 == false || (cure2 == false || Cure1 == false)) {
         duck4.follow(sprite, 100)
-        if (true) {
+        if (lvl3) {
             duck4.follow(sprite, 115)
         }
     }
@@ -937,6 +938,7 @@ let one: Sprite = null
 let Normal: Sprite = null
 let lvl2 = false
 let lvl1 = false
+let lvl3 = false
 let y = 0
 let x = 0
 let mySprite: Sprite = null
