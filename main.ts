@@ -3,6 +3,7 @@ namespace SpriteKind {
     export const Part1 = SpriteKind.create()
     export const Part2 = SpriteKind.create()
     export const Part3 = SpriteKind.create()
+    export const mutated = SpriteKind.create()
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
@@ -107,7 +108,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 function level4 () {
     game.showLongText("The mutated duck is now slightly faster!", DialogLayout.Full)
     lvl4 = true
-    tiles.setCurrentTilemap(tilemap`level1`)
+    tiles.setCurrentTilemap(tilemap`level0`)
     Cure1 = false
     cure2 = false
     Cure3 = false
@@ -244,6 +245,167 @@ function level4 () {
     enimies = true
     duck4.follow(mySprite, 5)
 }
+function level5 () {
+    game.showLongText("Don't run into stationary mutated ducks.", DialogLayout.Full)
+    lvl5 = true
+    tiles.setCurrentTilemap(tilemap`level1`)
+    lvl4 = false
+    Cure1 = false
+    cure2 = false
+    Cure3 = false
+    final_level = false
+    mySprite = sprites.create(img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `, SpriteKind.Player)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
+    for (let index = 0; index < 15; index++) {
+        Normal = sprites.create(img`
+            . . . . . . . . . . b 5 b . . . 
+            . . . . . . . . . b 5 b . . . . 
+            . . . . . . b b b b b b . . . . 
+            . . . . . b b 5 5 5 5 5 b . . . 
+            . . . . b b 5 d 1 f 5 5 d f . . 
+            . . . . b 5 5 1 f f 5 d 4 c . . 
+            . . . . b 5 5 d f b d d 4 4 . . 
+            . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+            b d d d b b d 5 5 4 4 4 4 4 b . 
+            b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+            c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+            c b d c d 5 5 b 5 5 5 5 5 5 b . 
+            . c d d c c b d 5 5 5 5 5 d b . 
+            . . c b d d d d d 5 5 5 b b . . 
+            . . . c c c c c c c c b b . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Friend)
+        tiles.placeOnRandomTile(Normal, assets.tile`myTile4`)
+    }
+    for (let index = 0; index < 10; index++) {
+        sittingDucks = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . 8 7 b . . . 
+            . . . . . . . . . 8 7 8 . . . . 
+            . . . . . . 8 8 8 8 8 8 . . . . 
+            . . . . . 8 8 7 7 7 7 7 8 . . . 
+            . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+            . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+            . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+            . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+            8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+            8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+            c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+            c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+            . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+            . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+            . . . c c c c c c c c 8 8 . . . 
+            `, SpriteKind.mutated)
+        tiles.placeOnRandomTile(sittingDucks, assets.tile`myTile0`)
+    }
+    one = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        .........bb.........
+        ........cccc........
+        ........cccc........
+        .........ff.........
+        .........bf.........
+        .........bb.........
+        ........bbbb........
+        .......bbbbbb.......
+        .......bbbbbb.......
+        .......bbbbbb.......
+        .......bbbbbc.......
+        ........cccc........
+        ....................
+        ....................
+        `, SpriteKind.Part1)
+    tiles.placeOnRandomTile(one, assets.tile`myTile2`)
+    Two = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ........4eee........
+        .......eeeeee.......
+        .........cc.........
+        .........ec.........
+        ........eeee........
+        .......ee4eee.......
+        ......ee4eeeee......
+        .....ee4eeeeeee.....
+        .....eeeeeeeeee.....
+        .....eeeeeeeecc.....
+        ......eeeeeecc......
+        .......eccccc.......
+        ....................
+        ....................
+        `, SpriteKind.Part2)
+    tiles.placeOnRandomTile(Two, assets.tile`myTile2`)
+    Three = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        .........888........
+        .........888........
+        ......888888888.....
+        ........fffff.......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        ......888888888.....
+        ......fffffffff.....
+        ....................
+        ....................
+        `, SpriteKind.Part3)
+    tiles.placeOnRandomTile(Three, assets.tile`myTile2`)
+    duck4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 8 7 b . . . 
+        . . . . . . . . . 8 7 8 . . . . 
+        . . . . . . 8 8 8 8 8 8 . . . . 
+        . . . . . 8 8 7 7 7 7 7 8 . . . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+        . . . c c c c c c c c 8 8 . . . 
+        `, SpriteKind.Enemy)
+    fight = true
+    enimies = true
+    duck4.follow(mySprite, 5)
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -299,7 +461,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 function level3 () {
     game.showLongText("The mutated duck is now slightly faster!", DialogLayout.Full)
     lvl3 = true
-    tiles.setCurrentTilemap(tilemap`level1`)
+    tiles.setCurrentTilemap(tilemap`level0`)
     Cure1 = false
     cure2 = false
     Cure3 = false
@@ -1167,6 +1329,10 @@ function prologue () {
     sprites.destroy(duck4)
     game.showLongText("Your job is to collect the three items for the cure in each level and once you have all three you need to cure the infected ducks.", DialogLayout.Full)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.mutated, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    sprites.destroy(otherSprite)
+})
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
 })
@@ -1213,6 +1379,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
             } else {
                 if (lvl3) {
                     level4()
+                } else {
+                    if (lvl4) {
+                        level5()
+                    }
                 }
             }
         }
@@ -1224,6 +1394,8 @@ let duck1: Sprite = null
 let duck: Sprite = null
 let lvl1 = false
 let lvl2 = false
+let sittingDucks: Sprite = null
+let lvl5 = false
 let enimies = false
 let fight = false
 let Three: Sprite = null
