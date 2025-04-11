@@ -747,6 +747,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
     if (Cure3 && Cure1) {
         duck4.setBounceOnWall(true)
         duck4.setVelocity(200, 200)
+        game.showLongText("Now you have collected all three parts of the cure, cure the mutated duck!", DialogLayout.Full)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Friend, function (sprite, otherSprite) {
@@ -1033,6 +1034,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part1, function (sprite, otherSp
     if (Cure3 && cure2) {
         duck4.setBounceOnWall(true)
         duck4.setVelocity(200, 200)
+        game.showLongText("Now you have collected all three parts of the cure, cure the mutated duck!", DialogLayout.Full)
     }
 })
 info.onLifeZero(function () {
@@ -1356,6 +1358,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part3, function (sprite, otherSp
     if (Cure1 && cure2) {
         duck4.setBounceOnWall(true)
         duck4.setVelocity(200, 200)
+        game.showLongText("Now you have collected all three parts of the cure, cure the mutated duck!", DialogLayout.Full)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
