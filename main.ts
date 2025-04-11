@@ -744,11 +744,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
     info.changeScoreBy(1)
     cure2 = true
     sprites.destroy(otherSprite)
-    if (Cure3 && Cure1) {
-        duck4.setBounceOnWall(true)
-        duck4.setVelocity(200, 200)
-        game.showLongText("Now you have collected all three parts of the cure, cure the mutated duck!", DialogLayout.Full)
-    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Friend, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -1031,11 +1026,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part1, function (sprite, otherSp
     info.changeScoreBy(1)
     Cure1 = true
     sprites.destroy(otherSprite)
-    if (Cure3 && cure2) {
-        duck4.setBounceOnWall(true)
-        duck4.setVelocity(200, 200)
-        game.showLongText("Now you have collected all three parts of the cure, cure the mutated duck!", DialogLayout.Full)
-    }
 })
 info.onLifeZero(function () {
     game.setGameOverEffect(false, effects.melt)
@@ -1332,8 +1322,12 @@ function prologue () {
     game.showLongText("Your job is to collect the three items for the cure in each level and once you have all three you need to cure the infected ducks.", DialogLayout.Full)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.mutated, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-    sprites.destroy(otherSprite)
+    if (Cure1 && (cure2 && Cure3)) {
+        sprites.destroy(otherSprite)
+    } else {
+        info.changeLifeBy(-1)
+        sprites.destroy(otherSprite)
+    }
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
@@ -1355,11 +1349,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part3, function (sprite, otherSp
     info.changeScoreBy(1)
     sprites.destroy(otherSprite)
     Cure3 = true
-    if (Cure1 && cure2) {
-        duck4.setBounceOnWall(true)
-        duck4.setVelocity(200, 200)
-        game.showLongText("Now you have collected all three parts of the cure, cure the mutated duck!", DialogLayout.Full)
-    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (Cure3 == true && (cure2 == true && Cure1 == true)) {
@@ -1529,6 +1518,7 @@ if (maybe == "yes") {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
+    game.showLongText("Once you collect all three parts of the cure touch the mutated duck to complete the level.", DialogLayout.Bottom)
     sprites.destroy(duck4)
     Level_1()
     level3()
@@ -1552,6 +1542,7 @@ if (maybe == "yes") {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
+    game.showLongText("Once you collect all three parts of the cure touch the mutated duck to complete the level.", DialogLayout.Bottom)
     sprites.destroy(duck4)
     Level_1()
 }
