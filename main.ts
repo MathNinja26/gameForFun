@@ -313,7 +313,7 @@ function level6 () {
             2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
             . 2 . c c c c c c c c 8 8 . 2 . 
             `, SpriteKind.mutated)
-        tiles.placeOnRandomTile(sittingDucks, assets.tile`myTile0`)
+        tiles.placeOnRandomTile(sittingDucks, assets.tile`myTile1`)
     }
     one = sprites.create(img`
         ....................
@@ -360,7 +360,7 @@ function level6 () {
         ....................
         ....................
         `, SpriteKind.Part2)
-    tiles.placeOnRandomTile(Two, assets.tile`myTile2`)
+    tiles.placeOnRandomTile(Two, assets.tile`myTile0`)
     Three = sprites.create(img`
         ....................
         ....................
@@ -383,7 +383,7 @@ function level6 () {
         ....................
         ....................
         `, SpriteKind.Part3)
-    tiles.placeOnRandomTile(Three, assets.tile`myTile2`)
+    tiles.placeOnRandomTile(Three, assets.tile`myTile0`)
     duck4 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . 8 7 b . . . 
@@ -409,7 +409,7 @@ function level6 () {
 function level5 () {
     game.showLongText("Don't run into stationary mutated ducks.", DialogLayout.Full)
     lvl5 = true
-    tiles.setCurrentTilemap(tilemap`level1`)
+    tiles.setCurrentTilemap(tilemap`level3`)
     lvl4 = false
     Cure1 = false
     cure2 = false
@@ -1535,6 +1535,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
                 } else {
                     if (lvl4) {
                         level5()
+                    } else {
+                        if (lvl5) {
+                            level6()
+                        }
                     }
                 }
             }
