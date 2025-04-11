@@ -294,24 +294,24 @@ function level5 () {
             `, SpriteKind.Friend)
         tiles.placeOnRandomTile(Normal, assets.tile`myTile4`)
     }
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 5; index++) {
         sittingDucks = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . 8 7 b . . . 
-            . . . . . . . . . 8 7 8 . . . . 
-            . . . . . . 8 8 8 8 8 8 . . . . 
-            . . . . . 8 8 7 7 7 7 7 8 . . . 
+            2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+            . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+            . . 2 . . 2 . . 2 8 7 8 2 . . . 
+            . . . 2 . . 8 8 8 8 8 8 . . . 2 
+            2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
             . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-            . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
-            . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
-            . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+            . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+            2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+            . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
             8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
             8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-            c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+            c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
             c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
             . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-            . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
-            . . . c c c c c c c c 8 8 . . . 
+            2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+            . 2 . c c c c c c c c 8 8 . 2 . 
             `, SpriteKind.mutated)
         tiles.placeOnRandomTile(sittingDucks, assets.tile`myTile0`)
     }
