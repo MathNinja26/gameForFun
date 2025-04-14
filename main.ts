@@ -1490,6 +1490,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.mutated, function (sprite, other
         sprites.destroy(otherSprite)
     }
 })
+function level7 () {
+    game.showLongText("Make it through the \"Maze\" of mutated ducks.", DialogLayout.Bottom)
+    lvl7 = true
+}
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
 })
@@ -1545,6 +1549,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         }
     }
 })
+let lvl7 = false
 let duck3: Sprite = null
 let duck2: Sprite = null
 let duck1: Sprite = null
