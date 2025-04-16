@@ -1614,7 +1614,6 @@ function level7 () {
     tiles.placeOnTile(duck4, tiles.getTileLocation(2, 0))
     duck4.follow(mySprite, 5)
     fight = true
-    fight = true
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -2372,7 +2371,7 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
             duck4.follow(sprite, 125)
         }
         if (lvl7) {
-            duck4.follow(sprite, 50)
+            duck4.follow(sprite, 25)
         }
     }
 })
