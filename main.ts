@@ -2977,6 +2977,9 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
         if (lvl8) {
             duck4.follow(sprite, 25)
         }
+        if (lvl9) {
+            duck4.follow(sprite, 125)
+        }
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part3, function (sprite, otherSprite) {
@@ -3045,6 +3048,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
                                         sprites.destroyAllSpritesOfKind(SpriteKind.mutated)
                                         sprites.destroyAllSpritesOfKind(SpriteKind.Player)
                                         level_9()
+                                    } else {
+                                        if (lvl9) {
+                                            sprites.destroyAllSpritesOfKind(SpriteKind.Friend)
+                                            sprites.destroyAllSpritesOfKind(SpriteKind.mutated)
+                                            sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+                                            level_9()
+                                        }
                                     }
                                 }
                             }
@@ -3078,6 +3088,7 @@ let one: Sprite = null
 let lvl8 = false
 let lvl7 = false
 let mySprite: Sprite = null
+let maybe = ""
 let final_level = false
 let Cure3 = false
 let cure2 = false
@@ -3174,54 +3185,60 @@ game.setDialogFrame(img`
     ......ffff..............fff.............fff........fff............
     ..................................................................
     `)
+let start = true
 final_level = false
-let maybe = game.askForString("Would you like to see the pologue? yes or no", 3)
-if (maybe == "yes") {
-    prologue()
-    mySprite = sprites.create(img`
-        . . . . . . f f f f . . . . . . 
-        . . . . f f f 2 2 f f f . . . . 
-        . . . f f f 2 2 2 2 f f f . . . 
-        . . f f f e e e e e e f f f . . 
-        . . f f e 2 2 2 2 2 2 e e f . . 
-        . . f e 2 f f f f f f 2 e f . . 
-        . . f f f f e e e e f f f f . . 
-        . f f e f b f 4 4 f b f e f f . 
-        . f e e 4 1 f d d f 1 4 e e f . 
-        . . f e e d d d d d d e e f . . 
-        . . . f e e 4 4 4 4 e e f . . . 
-        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-        . . . . . f f f f f f . . . . . 
-        . . . . . f f . . f f . . . . . 
-        `, SpriteKind.Player)
-    game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
-    game.showLongText("Once you collect all three parts of the cure touch the mutated duck to complete the level.", DialogLayout.Full)
-    sprites.destroy(duck4)
-    Level_1()
-    level3()
-} else {
-    mySprite = sprites.create(img`
-        . . . . . . f f f f . . . . . . 
-        . . . . f f f 2 2 f f f . . . . 
-        . . . f f f 2 2 2 2 f f f . . . 
-        . . f f f e e e e e e f f f . . 
-        . . f f e 2 2 2 2 2 2 e e f . . 
-        . . f e 2 f f f f f f 2 e f . . 
-        . . f f f f e e e e f f f f . . 
-        . f f e f b f 4 4 f b f e f f . 
-        . f e e 4 1 f d d f 1 4 e e f . 
-        . . f e e d d d d d d e e f . . 
-        . . . f e e 4 4 4 4 e e f . . . 
-        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-        . . . . . f f f f f f . . . . . 
-        . . . . . f f . . f f . . . . . 
-        `, SpriteKind.Player)
-    game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
-    game.showLongText("Once you collect all three parts of the cure touch the mutated duck to complete the level.", DialogLayout.Full)
-    sprites.destroy(duck4)
-    Level_1()
+while (start) {
+    maybe = game.askForString("Would you like to see the pologue? yes or no", 3)
+    if (maybe == "yes") {
+        prologue()
+        mySprite = sprites.create(img`
+            . . . . . . f f f f . . . . . . 
+            . . . . f f f 2 2 f f f . . . . 
+            . . . f f f 2 2 2 2 f f f . . . 
+            . . f f f e e e e e e f f f . . 
+            . . f f e 2 2 2 2 2 2 e e f . . 
+            . . f e 2 f f f f f f 2 e f . . 
+            . . f f f f e e e e f f f f . . 
+            . f f e f b f 4 4 f b f e f f . 
+            . f e e 4 1 f d d f 1 4 e e f . 
+            . . f e e d d d d d d e e f . . 
+            . . . f e e 4 4 4 4 e e f . . . 
+            . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+            . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+            . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+            . . . . . f f f f f f . . . . . 
+            . . . . . f f . . f f . . . . . 
+            `, SpriteKind.Player)
+        game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
+        game.showLongText("Once you collect all three parts of the cure touch the mutated duck to complete the level.", DialogLayout.Full)
+        sprites.destroy(duck4)
+        Level_1()
+        start = false
+    } else if (maybe == "no") {
+        mySprite = sprites.create(img`
+            . . . . . . f f f f . . . . . . 
+            . . . . f f f 2 2 f f f . . . . 
+            . . . f f f 2 2 2 2 f f f . . . 
+            . . f f f e e e e e e f f f . . 
+            . . f f e 2 2 2 2 2 2 e e f . . 
+            . . f e 2 f f f f f f 2 e f . . 
+            . . f f f f e e e e f f f f . . 
+            . f f e f b f 4 4 f b f e f f . 
+            . f e e 4 1 f d d f 1 4 e e f . 
+            . . f e e d d d d d d e e f . . 
+            . . . f e e 4 4 4 4 e e f . . . 
+            . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+            . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+            . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+            . . . . . f f f f f f . . . . . 
+            . . . . . f f . . f f . . . . . 
+            `, SpriteKind.Player)
+        game.showLongText("Collect all three parts of the cure to cure the ducks. Don't get hit by the mutated ducks before you collect all the parts of the cure. ", DialogLayout.Full)
+        game.showLongText("Once you collect all three parts of the cure touch the mutated duck to complete the level.", DialogLayout.Full)
+        sprites.destroy(duck4)
+        Level_1()
+        start = false
+    } else {
+        game.splash("That is not a valid answer.")
+    }
 }
