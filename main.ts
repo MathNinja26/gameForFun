@@ -6,6 +6,9 @@ namespace SpriteKind {
     export const mutated = SpriteKind.create()
 }
 function level8 () {
+    sprites.destroyAllSpritesOfKind(SpriteKind.mutated)
+    lvl7 = false
+    lvl8 = true
     tiles.setCurrentTilemap(tilemap`level6`)
     Cure1 = false
     cure2 = false
@@ -51,7 +54,7 @@ function level8 () {
         ....................
         ....................
         `, SpriteKind.Part1)
-    tiles.placeOnTile(one, tiles.getTileLocation(2, 5))
+    tiles.placeOnTile(one, tiles.getTileLocation(8, 7))
     Two = sprites.create(img`
         ....................
         ....................
@@ -74,7 +77,7 @@ function level8 () {
         ....................
         ....................
         `, SpriteKind.Part2)
-    tiles.placeOnTile(Two, tiles.getTileLocation(2, 7))
+    tiles.placeOnTile(Two, tiles.getTileLocation(10, 14))
     tiles.placeOnTile(mySprite, tiles.getTileLocation(2, 3))
     Three = sprites.create(img`
         ....................
@@ -98,7 +101,7 @@ function level8 () {
         ....................
         ....................
         `, SpriteKind.Part3)
-    tiles.placeOnTile(Three, tiles.getTileLocation(15, 7))
+    tiles.placeOnTile(Three, tiles.getTileLocation(12, 0))
     duck4 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . 8 7 b . . . 
@@ -139,500 +142,6 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 0))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 1))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 2))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 3))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 4))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 5))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 7))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(2, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(4, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(5, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(6, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(7, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(8, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(9, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(10, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(11, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(12, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(13, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(14, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(15, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(16, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(17, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(18, 8))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
     tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 1))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
@@ -652,7 +161,7 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 2))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(4, 4))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -671,7 +180,7 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 3))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(6, 2))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -690,7 +199,64 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 4))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(5, 4))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(8, 2))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(9, 4))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(9, 5))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -728,7 +294,7 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(8, 6))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(7, 7))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -747,7 +313,7 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(9, 6))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(4, 10))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -766,7 +332,7 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(10, 6))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(5, 10))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -785,7 +351,7 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(11, 6))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(6, 10))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -804,7 +370,235 @@ function level8 () {
         2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(12, 6))
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 11))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(1, 12))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 15))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(5, 13))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(6, 13))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(8, 15))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(9, 13))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(10, 13))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(13, 11))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(11, 12))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(11, 10))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(13, 9))
+    sittingDucks = sprites.create(img`
+        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+        . . 2 . . 2 . . 2 8 7 8 2 . . . 
+        . . . 2 . . 8 8 8 8 8 8 . . . 2 
+        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+        . 2 . c c c c c c c c 8 8 . 2 . 
+        `, SpriteKind.mutated)
+    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(11, 7))
     sittingDucks = sprites.create(img`
         2 . . 2 . . 2 . . 2 . . 2 . 2 . 
         . 2 . . 2 . . 2 . . 8 7 b 2 . . 
@@ -824,139 +618,6 @@ function level8 () {
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
     tiles.placeOnTile(sittingDucks, tiles.getTileLocation(13, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(14, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(15, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 5))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(4, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(5, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(6, 6))
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
@@ -1862,6 +1523,166 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Part2, function (sprite, otherSp
     cure2 = true
     sprites.destroy(otherSprite)
 })
+function level_9 () {
+    lvl9 = true
+    lvl8 = false
+    scene.setBackgroundColor(7)
+    tiles.setCurrentTilemap(tilemap`level9`)
+    Cure1 = false
+    cure2 = false
+    Cure3 = false
+    final_level = false
+    mySprite = sprites.create(img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `, SpriteKind.Player)
+    one = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        .........bb.........
+        ........cccc........
+        ........cccc........
+        .........ff.........
+        .........bf.........
+        .........bb.........
+        ........bbbb........
+        .......bbbbbb.......
+        .......bbbbbb.......
+        .......bbbbbb.......
+        .......bbbbbc.......
+        ........cccc........
+        ....................
+        ....................
+        `, SpriteKind.Part1)
+    tiles.placeOnTile(one, tiles.getTileLocation(5, 4))
+    Two = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ........4eee........
+        .......eeeeee.......
+        .........cc.........
+        .........ec.........
+        ........eeee........
+        .......ee4eee.......
+        ......ee4eeeee......
+        .....ee4eeeeeee.....
+        .....eeeeeeeeee.....
+        .....eeeeeeeecc.....
+        ......eeeeeecc......
+        .......eccccc.......
+        ....................
+        ....................
+        `, SpriteKind.Part2)
+    tiles.placeOnTile(Two, tiles.getTileLocation(5, 20))
+    Three = sprites.create(img`
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        ....................
+        .........888........
+        .........888........
+        ......888888888.....
+        ........fffff.......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        .......9999999......
+        ......888888888.....
+        ......fffffffff.....
+        ....................
+        ....................
+        `, SpriteKind.Part3)
+    tiles.placeOnTile(Three, tiles.getTileLocation(23, 10))
+    duck4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . 8 7 b . . . 
+        . . . . . . . . . 8 7 8 . . . . 
+        . . . . . . 8 8 8 8 8 8 . . . . 
+        . . . . . 8 8 7 7 7 7 7 8 . . . 
+        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . . 
+        . . 8 7 7 8 7 5 1 2 7 5 4 2 . . 
+        . . 8 5 7 7 8 1 2 2 7 4 4 c . . 
+        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 . 
+        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+        . . c 8 5 5 5 5 5 7 7 7 8 8 . . 
+        . . . c c c c c c c c 8 8 . . . 
+        `, SpriteKind.Enemy)
+    for (let index = 0; index < 30; index++) {
+        Normal = sprites.create(img`
+            . . . . . . . . . . b 5 b . . . 
+            . . . . . . . . . b 5 b . . . . 
+            . . . . . . b b b b b b . . . . 
+            . . . . . b b 5 5 5 5 5 b . . . 
+            . . . . b b 5 d 1 f 5 5 d f . . 
+            . . . . b 5 5 1 f f 5 d 4 c . . 
+            . . . . b 5 5 d f b d d 4 4 . . 
+            . b b b d 5 5 5 5 5 4 4 4 4 4 b 
+            b d d d b b d 5 5 4 4 4 4 4 b . 
+            b b d 5 5 5 b 5 5 5 5 5 5 b . . 
+            c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
+            c b d c d 5 5 b 5 5 5 5 5 5 b . 
+            . c d d c c b d 5 5 5 5 5 d b . 
+            . . c b d d d d d 5 5 5 b b . . 
+            . . . c c c c c c c c b b . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Friend)
+        tiles.placeOnRandomTile(Normal, sprites.swamp.swampTile1)
+    }
+    for (let index = 0; index < 10; index++) {
+        sittingDucks = sprites.create(img`
+            2 . . 2 . . 2 . . 2 . . 2 . 2 . 
+            . 2 . . 2 . . 2 . . 8 7 b 2 . . 
+            . . 2 . . 2 . . 2 8 7 8 2 . . . 
+            . . . 2 . . 8 8 8 8 8 8 . . . 2 
+            2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
+            . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
+            . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
+            2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
+            . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
+            8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
+            8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
+            c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
+            c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
+            . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
+            2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
+            . 2 . c c c c c c c c 8 8 . 2 . 
+            `, SpriteKind.mutated)
+        tiles.placeOnRandomTile(sittingDucks, sprites.castle.tileDarkGrass2)
+    }
+    fight = true
+    enimies = true
+    duck4.follow(mySprite, 5)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Friend, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 500)
@@ -3135,177 +2956,6 @@ function level7 () {
         . 2 . c c c c c c c c 8 8 . 2 . 
         `, SpriteKind.mutated)
     tiles.placeOnTile(sittingDucks, tiles.getTileLocation(3, 4))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(7, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(8, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(9, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(10, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(11, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(12, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(13, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(14, 6))
-    sittingDucks = sprites.create(img`
-        2 . . 2 . . 2 . . 2 . . 2 . 2 . 
-        . 2 . . 2 . . 2 . . 8 7 b 2 . . 
-        . . 2 . . 2 . . 2 8 7 8 2 . . . 
-        . . . 2 . . 8 8 8 8 8 8 . . . 2 
-        2 . . . 2 8 8 7 7 7 7 7 8 . 2 . 
-        . 8 8 8 8 8 7 7 7 7 7 7 7 8 . . 
-        . 8 5 7 8 7 7 7 7 7 7 7 7 8 . 2 
-        2 . 8 7 7 8 7 5 1 2 7 5 4 2 2 . 
-        . 2 8 5 7 7 8 1 2 2 7 4 4 c . . 
-        8 8 5 8 7 7 7 5 2 8 4 4 4 4 4 8 
-        8 5 5 c 5 7 7 8 7 4 4 4 4 4 8 . 
-        c 5 5 5 c c 8 7 7 7 2 7 7 2 8 2 
-        c 8 5 5 5 5 5 7 7 7 2 7 7 2 8 . 
-        . c 5 5 5 5 5 5 7 7 7 7 7 5 8 . 
-        2 . c 8 5 5 5 5 5 7 7 7 8 8 . 2 
-        . 2 . c c c c c c c c 8 8 . 2 . 
-        `, SpriteKind.mutated)
-    tiles.placeOnTile(sittingDucks, tiles.getTileLocation(15, 6))
 }
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Friend, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
@@ -3324,6 +2974,9 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
         if (lvl7) {
             duck4.follow(sprite, 25)
         }
+        if (lvl8) {
+            duck4.follow(sprite, 25)
+        }
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Part3, function (sprite, otherSprite) {
@@ -3339,6 +2992,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         info.changeLifeBy(-1)
         tiles.placeOnTile(otherSprite, tiles.getTileLocation(10, 10))
         if (lvl7) {
+            tiles.placeOnTile(otherSprite, tiles.getTileLocation(2, 0))
+        }
+        if (lvl8) {
             tiles.placeOnTile(otherSprite, tiles.getTileLocation(2, 0))
         }
         otherSprite.follow(sprite)
@@ -3383,6 +3039,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
                                     sprites.destroyAllSpritesOfKind(SpriteKind.mutated)
                                     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
                                     level8()
+                                } else {
+                                    if (lvl8) {
+                                        sprites.destroyAllSpritesOfKind(SpriteKind.Friend)
+                                        sprites.destroyAllSpritesOfKind(SpriteKind.mutated)
+                                        sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+                                        level_9()
+                                    }
                                 }
                             }
                         }
@@ -3392,11 +3055,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         }
     }
 })
-let lvl7 = false
 let duck3: Sprite = null
 let duck2: Sprite = null
 let duck1: Sprite = null
 let duck: Sprite = null
+let lvl9 = false
 let lvl1 = false
 let lvl2 = false
 let lvl5 = false
@@ -3412,6 +3075,8 @@ let fight = false
 let Three: Sprite = null
 let Two: Sprite = null
 let one: Sprite = null
+let lvl8 = false
+let lvl7 = false
 let mySprite: Sprite = null
 let final_level = false
 let Cure3 = false
