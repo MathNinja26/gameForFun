@@ -1550,6 +1550,7 @@ function level_9 () {
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
     one = sprites.create(img`
         ....................
         ....................
@@ -3053,7 +3054,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
                                             sprites.destroyAllSpritesOfKind(SpriteKind.Friend)
                                             sprites.destroyAllSpritesOfKind(SpriteKind.mutated)
                                             sprites.destroyAllSpritesOfKind(SpriteKind.Player)
-                                            level_9()
                                         }
                                     }
                                 }
@@ -3239,6 +3239,6 @@ while (start) {
         Level_1()
         start = false
     } else {
-        game.splash("That is not a valid answer.")
+        game.splash("That is not a valid responce.")
     }
 }
